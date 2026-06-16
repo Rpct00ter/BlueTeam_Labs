@@ -1,4 +1,4 @@
-##This repository contains my practical work, notes, and hands-on exercises related to blue teaming. Its main purpose is documenting solved cybersecurity challenges, investigations, and defensive security scenarios, while also covering areas such as system administration and OSINT.
+# This repository contains my practical work, notes, and hands-on exercises related to blue teaming. Its main purpose is documenting solved cybersecurity challenges, investigations, and defensive security scenarios, while also covering areas such as system administration and OSINT.
 It is divided into three main sections:
 - Defensive Security Challenges  
   Investigations and defensive security exercises performed in my personal homelab environment, recreated from external sources, or completed using platforms such as Blue Team Labs Online
