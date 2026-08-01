@@ -8,3 +8,5 @@
 
 - ***OSINT***  
   Personal OSINT tools, notes, methodologies, quick knowledge dumps, and cheat sheets used during investigations and research
+## EDIT:
+### Currently I'm mastering my Linux knowledge and preparing for Comptia Linux+ exam, so I'm mainly focusing on expanding Linux directory. I will have my exam in a 2 weeks and then I'll ocme back to expanding content focused more specifically on cybersecurity.
