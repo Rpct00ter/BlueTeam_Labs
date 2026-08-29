@@ -1,4 +1,4 @@
-# Lab 10 — IPS and Application Control (Threat Mitigation & Traffic Steering)
+# IPS and Application Control (Threat Mitigation & Traffic Steering)
 
 This repository showcases my hands-on implementation of an **Intrusion Prevention System (IPS)** to protect a web server from known web exploits, and **Application Control** to identify, block, and steer application-layer traffic on a **FortiGate Next-Generation Firewall (NGFW)**, integrated with monitoring on **FortiAnalyzer**.
 
@@ -143,9 +143,3 @@ On **FortiAnalyzer**, I investigated application-layer logs and traffic distribu
 
 
 ---
-
-## 🧠 Key Takeaways for SOC Roles
-* **Targeted IPS Tuning:** Creating targeted IPS sensors based on severe vulnerabilities, Server-Tgt, and specific applications (Apache) minimizes firewall CPU overhead and filters out unnecessary false positives.
-* **Application Decoders:** App Control uses deep packet analysis to look past port numbers, blocking bandwidth-heavy evasion apps even if they use unexpected ports.
-* **Override Logic:** Specific overrides must always be ordered above broad filters to guarantee exception handling.
-* **CLI Emergency Diagnostics:** Mastering the `ipsmonitor` command line utility is crucial for real-time performance troubleshooting and managing active bypass behaviors under high network load.
