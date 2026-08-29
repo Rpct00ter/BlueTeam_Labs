@@ -1,12 +1,15 @@
-## This repository contains my practical work, notes, and hands-on exercises related to blue teaming. Its main purpose is documenting solved cybersecurity challenges, investigations, and defensive security scenarios, while also covering areas such as system administration and OSINT.
-### It is divided into three main sections:
-- ***Defensive Security Challenges***  
-  Investigations and defensive security exercises performed in my personal homelab environment, recreated from external sources, or completed using platforms such as Blue Team Labs Online
+## This repository contains my practical work, notes, and hands-on exercises related to blue teaming. Its main purpose is documenting solved cybersecurity challenges, investigations and defensive security scenarios.
+### It is divided into four main sections:  
+- <strong><ins>SOC</ins></strong>  
+Consists of security investigations, detection rules, alert analysis, and defensive security scenarios using tools such as for example: <strong><u>Microsoft Sentinel , Splunk, Wazuh, Microsoft Defender XDR, Sysmon,</u></strong>  and  <strong><u> Wireshark.</u></strong>  
 
-- ***Homelab Infrastructure***  
-  Visualisation of infrastructure and lab environment created for daily administration practice, testing, automation, and cybersecurity experimentation
+- <strong><ins>DFIR</ins></strong>  
+Digital forensics and incident response exercises, including memory and disk analysis using tools such as for example: <strong><u>Volatility 3</u></strong> and <strong><u>Autopsy</u></strong>.  
 
-- ***OSINT***  
-  Personal OSINT tools, notes, methodologies, quick knowledge dumps, and cheat sheets used during investigations and research
-## EDIT:
-### Currently I'm mastering my Linux knowledge and preparing for Comptia Linux+ exam, so I'm mainly focusing on expanding Linux directory. I will have my exam in a 2 weeks and then I'll ocme back to expanding content focused more specifically on cybersecurity.
+
+- <strong><ins>Security Engineering</ins></strong>  
+Practical security infrastructure configuration and administration, including  <strong><u>Fortinet NGFW, FortiAnalyzer </u></strong>, network security controls, logging, monitoring, and security policies.  
+
+
+- <strong><ins>OSINT</ins></strong>  
+Practical OSINT tools, notes, methodologies, knowledge dumps, and cheat sheets used for security research, threat intelligence, and investigations.  
