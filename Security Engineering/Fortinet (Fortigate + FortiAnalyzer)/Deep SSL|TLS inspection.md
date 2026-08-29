@@ -1,4 +1,4 @@
-# Lab 7 — Certificate Operations (Deep SSL/TLS Inspection)
+# Certificate Operations (Deep SSL/TLS Inspection)
 
 This repository showcases my hands-on implementation of **Full SSL/TLS Deep Inspection (Man-in-the-Middle)** on a **FortiGate Next-Generation Firewall (NGFW)**, integrated with centralized threat and event logging on **FortiAnalyzer**.
 
@@ -13,9 +13,8 @@ In this lab, I configured FortiGate to act as a **secure intermediary (Man-in-th
 
 ## Architectural Workflow
 
-Before deep inspection, the firewall only has visibility up to the SSL handshake (Server Name Indication / SNI). With **Full SSL Inspection**, the traffic flow is split into two secure segments:
+Before deep inspection, the firewall only has visibility up to the SSL handshake (Server Name Indication / SNI). With **Full SSL Inspection**, the traffic flow is split into two secure segments.
 
-\\[\text{Client} \quad \xrightarrow{\text{HTTPS (Signed by FortiGate CA)}} \quad \textbf{FortiGate NGFW (Inspects Payload)} \quad \xrightarrow{\text{HTTPS (Signed by Web Server CA)}} \quad \text{Web Server}\\]
 
 ---
 
@@ -111,7 +110,7 @@ With deep inspection active, the firewall enforces the configured security behav
 
 ## Step 7: Centralized Security Log Analysis on FortiAnalyzer
 
-To verify threat capture, I analyzed the security transactions on **FortiAnalyzer** under **Log View → Logs → Fortinet Logs → FortiGate → Security → SSL**.
+To verify threat capture, I analyzed the security transactions on **FortiAnalyzer** under **Log View --> Logs --> Fortinet Logs --> FortiGate --> Security --> SSL**.
 
 The logs detailed:
 * **The Action:** Blocked / Terminated.
@@ -127,7 +126,7 @@ The logs detailed:
 
 Certain categories (such as Finance, Health) or specific applications break when subjected to SSL decryption. To accommodate this, I configured a bypass exception:
 
-1. Navigated to **Security Profiles → SSL/SSH Inspection** and edited our `Custom_Full_Inspection` profile.
+1. Navigated to **Security Profiles --> SSL/SSH Inspection** and edited our 'Custom_Full_Inspection' profile.
 2. Under **Exempt from SSL Inspection → Addresses**, created a destination address override for the target IP/subnet (`badssl` representing `104.154.89.105/32`).
 3. Saved the profile.
 
@@ -136,8 +135,3 @@ Certain categories (such as Finance, Health) or specific applications break when
 I visited `https://expired.badssl.com/` again. The site was now accessible because the firewall bypassed full SSL inspection on that traffic. (The browser still displayed its native security warning, as the original site certificate remained expired and the firewall was no longer acting as the proxy to override/block it).
 
 ---
-
-## 🧠 Key Takeaways for SOC Roles
-* **MITM Visibility:** Deep packet inspection is mandatory for edge antivirus, web control, and IPS signature matching over encrypted protocols.
-* **PKI Governance:** Configured Certificate Revocation Lists (CRL) and Online Certificate Status Protocol (OCSP) to ensure perimeter identity validation.
-* **Performance & Privacy Tuning:** Designed target bypass exceptions to satisfy regulatory compliance requirements (e.g., privacy laws) and prevent application failures.
