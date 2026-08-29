@@ -1,11 +1,11 @@
-# Lab 14 — Diagnostics, Performance, and Packet Flow Troubleshooting
+# Diagnostics, Performance, and Packet Flow Troubleshooting
 
 This repository showcases my hands-on ability to troubleshoot network-layer and physical-layer issues on a **FortiGate Next-Generation Firewall (NGFW)** using  CLI diagnostics, real-time packet sniffing, and the FortiOS **Debug Flow** engine.
 
 ---
 
 ## Project Objective & Use Case
-In this lab, I diagnosed a simulated network outage where an internal client could not reach an external destination. I utilized a bottom-up troubleshooting methodology (Physical \\(\rightarrow\\) Packet Capture \\(\rightarrow\\) Routing Engine \\(\rightarrow\\) Security Policy \\(\rightarrow\\) NAT) to isolate the root cause and restore secure connectivity.
+In this lab, I diagnosed a simulated network outage where an internal client could not reach an external destination. I utilized a bottom-up troubleshooting methodology to isolate the root cause and restore secure connectivity.
 
 ---
 
@@ -61,11 +61,4 @@ To resolve the blockage, I updated the outbound internet policy and cleared the 
 2. Added the permitted service to not only allow **HTTP**, but also **ICMP**.
 
 
----
-
-## 🧠 Key Takeaways for SOC Roles
-* **Sniffer vs. Debug Flow:** The packet sniffer answers **"Are packets arriving?"**, while Debug Flow answers **"What is the firewall doing with those packets, and why?"**. 
-* **Policy 0 is the Clue:** Seeing `policy 0` in logs or debug streams always indicates a firewall policy mismatch or an **implicit deny**, never a routing issue.
-* **System Resource Triage:** Using `get system performance status` paired with `diagnose sys top` allows L1/L2 analysts to quickly identify whether performance degradation is caused by a hardware limitation or a specific runaway process.
-
----
+--- 
