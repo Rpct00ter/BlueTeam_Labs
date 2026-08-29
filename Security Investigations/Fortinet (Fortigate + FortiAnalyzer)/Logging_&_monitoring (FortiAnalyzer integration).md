@@ -31,9 +31,8 @@ To establish a secure logging connection from the firewall to the centralized co
    * **Verify FortiAnalyzer certificate:** Enabled (secures communication against MITM)
 4. Clicked **OK** and accepted the remote FortiAnalyzer serial number.
 
-/new line
-[picture of something <Screenshot of the FortiGate GUI under Security Fabric -> Fabric Connectors, showing the Logging & Analytics configuration panel with FortiAnalyzer enabled, server IP 10.0.13.125, upload option set to Real Time, and certificate verification enabled>]
-/new line
+<img width="1919" height="905" alt="image" src="https://github.com/user-attachments/assets/20edba86-7688-4d45-94be-2b87f10c7ff3" />
+
 
 ---
 
@@ -48,9 +47,8 @@ When a FortiGate first connects to a FortiAnalyzer, it is placed in an unauthori
 
 > 💡 **ADOM (Administrative Domain) Concept:** Logical containers used to organize, group, and isolate log databases for different devices or business units. This is critical in multi-tenant or large enterprise SOC environments to enforce role-based access control (RBAC).
 
-/new line
-[picture of something <Screenshot of the FortiAnalyzer Device Manager showing the Authorization confirmation wizard, selecting HQ-NGFW-1 and assigning it to the root ADOM>]
-/new line
+<img width="1919" height="905" alt="image" src="https://github.com/user-attachments/assets/8a8aed58-0e34-4c31-bd25-b0277a687876" />
+
 
 ---
 
@@ -80,9 +78,6 @@ To validate log generation and collection without executing a real or dangerous 
 
 > ⚠️ **SOC Warning:** The `diagnose log test` command generates simulated, harmless traffic and security anomalies. It is used strictly for pipeline validation and does not indicate an active compromise.
 
-/new line
-[picture of something <Screenshot of the FortiGate CLI window running the diagnose log test command several times, showing no command errors>]
-/new line
 
 ---
 
@@ -95,9 +90,8 @@ With logs successfully forwarded and indexed, I conducted log investigation on F
 3. Leveraged **Real-Time Log View** to watch current incoming logs stream to the console (perfect for live incident response or verification).
 4. Utilized **Historical Log View** to perform retrospective queries on indexed data (essential for security forensic investigations).
 
-/new line
-[picture of something <Screenshot of FortiAnalyzer Log View in Real-time mode, displaying the generated test logs under the Traffic tab, showing detailed fields like Source IP, Destination IP, Action, and Security Rule>]
-/new line
+<img width="1919" height="905" alt="image" src="https://github.com/user-attachments/assets/e1e1504d-0ea2-40ba-b89f-b07e026cb209" />
+
 
 ---
 
