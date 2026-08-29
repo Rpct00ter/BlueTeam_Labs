@@ -37,9 +37,8 @@ Using the global FortiGuard categorization engine, I restricted or monitored spe
 2. Under **General Interest - Personal**, located **Social Networking** (representing domains like `www.facebook.com`), right-clicked, and set the action to **Block**.
 3. Under **Bandwidth Consuming**, located **Internet Telephony**, set the action to **Warning**, and configured a **Warning Interval** of **5 minutes**.
 
-📌/new line
-[picture of something <Screenshot of the FortiGate Web Filter profile configuration page, showing the category tree with 'Social Networking' set to a red Block icon and 'Internet Telephony' set to a yellow Warning icon>]
-/new line
+<img width="1918" height="903" alt="image" src="https://github.com/user-attachments/assets/d901ef5d-f7c5-4071-9c0b-ad33717ec495" />
+
 
 ### **Verification:**
 * **Block Action:** Attempting to access `www.facebook.com` on the client machine resulted in an immediate **Web Page Blocked** security replacement page served by the FortiGate.
