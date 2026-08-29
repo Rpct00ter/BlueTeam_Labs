@@ -47,7 +47,7 @@ When a FortiGate first connects to a FortiAnalyzer, it is placed in an unauthori
 
 > 💡 **ADOM (Administrative Domain) Concept:** Logical containers used to organize, group, and isolate log databases for different devices or business units. This is critical in multi-tenant or large enterprise SOC environments to enforce role-based access control (RBAC).
 
-<img width="1919" height="905" alt="image" src="https://github.com/user-attachments/assets/8a8aed58-0e34-4c31-bd25-b0277a687876" />
+<img width="1919" height="905" alt="log1" src="https://github.com/user-attachments/assets/e256221f-b4e0-4b80-a6b2-e0f9d316b882" />
 
 
 ---
@@ -90,7 +90,7 @@ With logs successfully forwarded and indexed, I conducted log investigation on F
 3. Leveraged **Real-Time Log View** to watch current incoming logs stream to the console (perfect for live incident response or verification).
 4. Utilized **Historical Log View** to perform retrospective queries on indexed data (essential for security forensic investigations).
 
-<img width="1919" height="905" alt="image" src="https://github.com/user-attachments/assets/e1e1504d-0ea2-40ba-b89f-b07e026cb209" />
+<img width="1919" height="905" alt="log2" src="https://github.com/user-attachments/assets/fad626c7-20ed-496b-8e05-9e459bf82793" />
 
 
 ---
