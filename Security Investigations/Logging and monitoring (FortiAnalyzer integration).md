@@ -107,8 +107,3 @@ With logs successfully forwarded and indexed, I conducted log investigation on F
   - **Analytics Logs:** Structured and fully indexed in a database. They are optimized for fast searching, ad-hoc threat hunting, and generating structured compliance reports.
   - **Archive Logs:** Raw compressed log files used for offline, long-term storage to meet compliance requirements with minimal storage footprint.
 * **Connection Troubleshooting:** If logs stop flowing, a SOC analyst should immediately check if the **FDS/collector IP is correct**, confirm **SSL certificate verification is intact**, verify that the device is **properly authorized in the target ADOM**, and look for the **green arrow status** on the FortiGate dashboard.
-
----
-
-🗂️ **What's Next?**
-Would you like me to draft a unified **README.md** portfolio page that connects all four of your completed labs (Certificate Operations, Web Filtering, IPS/App Control, and Centralized Logging) into a single, cohesive professional portfolio for your GitHub profile?
