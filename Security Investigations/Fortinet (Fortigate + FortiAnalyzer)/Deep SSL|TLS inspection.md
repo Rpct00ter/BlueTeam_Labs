@@ -56,9 +56,9 @@ Before importing the FortiGate CA certificate into the client workstation's trus
 * **Expected Result:** The browser stopped the connection, throwing an untrusted issuer security warning.
 * **Technical Explanation:** Because the FortiGate intercepts the handshake, it generates a replacement certificate for `www.goto.com` on-the-fly and signs it using its local `Fortinet_CA_SSL` certificate. Since the browser does not yet have this CA in its root trust store, it flags the certificate as untrusted.
 
-/new line
-[picture of something <Screenshot of Firefox displaying an 'Insecure Connection' warning when visiting an HTTPS site, with the certificate details expanded showing 'Issuer: Fortinet' instead of the site's public CA>]
-/new line
+<img width="905" height="373" alt="image" src="https://github.com/user-attachments/assets/a4dfb0c4-ca88-4088-badf-fdaa27027d92" />
+<img width="447" height="559" alt="image" src="https://github.com/user-attachments/assets/ca885810-398d-4824-80e7-e05d71ebac4b" />
+
 
 ---
 
@@ -70,16 +70,14 @@ To establish trust between the internal endpoints and the intercepting firewall,
 2. Imported the certificate directly into the client browser's **Authorities trust store**, checking the box to **Trust this CA to identify websites**.
 3. Restarted the browser session.
 
-/new line
-[picture of something <Screenshot of Firefox Certificate Manager under the 'Authorities' tab, displaying the imported and trusted 'Fortinet_CA_SSL' certificate with trust settings enabled>]
-/new line
+<img width="1093" height="173" alt="image" src="https://github.com/user-attachments/assets/61828053-6a8d-4a61-b262-9dacfd8e6713" />
+
 
 ### Verification:
 I re-visited `https://www.goto.com`. The site loaded seamlessly without warnings. Inspecting the secure lock icon verified that the certificate was signed by our internal FortiGate CA, proving the firewall successfully decrypted and inspected the payload in transit.
 
-/new line
-[picture of something <Screenshot of the browser visiting the HTTPS website successfully with the secure lock pad clicked, showing the connection is verified by 'Fortinet' and indicating full decryption is occurring>]
-/new line
+<img width="239" height="90" alt="image" src="https://github.com/user-attachments/assets/06625abe-defd-450c-92a1-882aeafd1e45" />
+
 
 ---
 
@@ -102,9 +100,6 @@ config vpn certificate setting
     set strict-ocsp-check enable
 end
 ```
-*(Reference:)*
-
----
 
 ## Step 6: Testing Perimeter Blocks on Invalid Certificates
 
@@ -113,9 +108,8 @@ With deep inspection active, the firewall enforces the configured security behav
 1. Navigated to a test domain with an expired SSL certificate: `https://expired.badssl.com/`.
 2. **Result:** The connection was immediately terminated by the FortiGate's security engine, indicating the perimeter blocked an expired certificate transaction.
 
-/new line
-[picture of something <Screenshot of Firefox showing a connection blocked screen when attempting to access expired.badssl.com, verifying that the firewall blocked the session before rendering the invalid handshake>]
-/new line
+<img width="807" height="242" alt="image" src="https://github.com/user-attachments/assets/3bf513ae-4f3d-4563-841f-e0afa990aae6" />
+
 
 ---
 
@@ -128,9 +122,8 @@ The logs detailed:
 * **The Reason:** Certificate validation failure (expired certificate).
 * **The Client/Destination IPs** and policy details.
 
-/new line
-[picture of something <Screenshot of FortiAnalyzer SSL Logs showing the blocked event for expired.badssl.com, highlighting the source IP, destination IP, action set to 'Block', and reason column>]
-/new line
+<img width="1144" height="306" alt="image" src="https://github.com/user-attachments/assets/4a6daa4d-d8a1-47a1-bce0-da7e0ac0feb4" />
+
 
 ---
 
@@ -142,9 +135,6 @@ Certain categories (such as Finance, Health) or specific applications break when
 2. Under **Exempt from SSL Inspection → Addresses**, created a destination address override for the target IP/subnet (`badssl` representing `104.154.89.105/32`).
 3. Saved the profile.
 
-/new line
-[picture of something <Screenshot of the SSL/SSH Inspection profile editor, pointing to the Exempt from SSL Inspection section with the 'badssl' address object added as an active bypass exception>]
-/new line
 
 ### Verification:
 I visited `https://expired.badssl.com/` again. The site was now accessible because the firewall bypassed full SSL inspection on that traffic. (The browser still displayed its native security warning, as the original site certificate remained expired and the firewall was no longer acting as the proxy to override/block it).
