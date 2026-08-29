@@ -1,4 +1,4 @@
-<img width="479" height="823" alt="image" src="https://github.com/user-attachments/assets/7b772780-f079-47bd-930d-aba75de32cda" /># Lab 10 — IPS and Application Control (Threat Mitigation & Traffic Steering)
+# Lab 10 — IPS and Application Control (Threat Mitigation & Traffic Steering)
 
 This repository showcases my hands-on implementation of an **Intrusion Prevention System (IPS)** to protect a web server from known web exploits, and **Application Control** to identify, block, and steer application-layer traffic on a **FortiGate Next-Generation Firewall (NGFW)**, integrated with monitoring on **FortiAnalyzer**.
 
