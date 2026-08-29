@@ -1,17 +1,17 @@
-# Lab 9 — Web Filtering & Content Security Control
+# Lab 9 - Web Filtering & Content Security Control
 
 This repository showcases my hands-on implementation of **Category-Based Web Filtering**, **Local Web Rating Overrides**, **User-Authenticated Security Bypasses**, and **Static URL Filtering** on a **FortiGate Next-Generation Firewall (NGFW)**, integrated with centralized monitoring on **FortiAnalyzer**.
 
 ---
 
-## 📌 Project Objective & Use Case
+## Project Objective & Use Case
 Unrestricted web access in an enterprise environment exposes the organization to malware, data exfiltration, legal liability, and lost productivity. 
 
 In this lab, I designed and configured a multi-layered web filtering policy to control inbound and outbound web traffic. The objective was to enforce acceptable use policies (blocking social media), apply soft-repressive controls (warning users), implement role-based overrides (requiring authentication to access restricted sites), and configure local URL exceptions.
 
 ---
 
-## ⚙️ Web Filtering Evaluation Order
+## Web Filtering Evaluation Order
 When a client requests a URL, the FortiGate processes the web security profiles using a strict evaluation hierarchy:
 
 \\[\text{Incoming URL Request} \;\rightarrow\; \textbf{1. Static URL Filter} \;\rightarrow\; \textbf{2. Web Rating Override} \;\rightarrow\; \textbf{3. FortiGuard Category Action}\\]
@@ -24,10 +24,8 @@ Before applying content restrictions, I verified service availability and aligne
 
 1. Navigated to the **Dashboard** and checked the **Licenses** widget to verify the **Web Filter** service was licensed and actively communicating with the **FortiGuard Distribution Servers (FDS)**.
 2. Navigated to **Policy & Objects → Firewall Policy** and edited the outbound internet policy to utilize **Proxy-based** inspection mode, which allows full web traffic processing through the proxy engine.
+<img width="339" height="240" alt="image" src="https://github.com/user-attachments/assets/4f1061fb-a77a-48ed-bfb3-8e1a6dfd8027" />
 
-/new line
-[picture of something <Screenshot of the FortiGate Dashboard Licenses widget with the hover-over status displaying the Web Filter service active, or the System -> FortiGuard page indicating successful FDS connectivity>]
-/new line
 
 ---
 
@@ -47,6 +45,8 @@ Using the global FortiGuard categorization engine, I restricted or monitored spe
 * **Block Action:** Attempting to access `www.facebook.com` on the client machine resulted in an immediate **Web Page Blocked** security replacement page served by the FortiGate.
 * **Warning Action:** Visiting `voice.google.com` presented a warning page. Clicking **Proceed** granted access to the site for the configured 5-minute interval.
 
+<img width="509" height="581" alt="image" src="https://github.com/user-attachments/assets/aca1cf3d-5f7a-4914-898e-15c4ce780907" />
+
 ---
 
 ## Step 3: Implementing local Web Rating Overrides
@@ -56,9 +56,8 @@ When an organization's local policy differs from FortiGuard’s global classific
 1. Navigated to **Security Profiles → Web Rating Overrides** and clicked **Create New**.
 2. Entered `www.bing.com` and locally re-categorized it under the **Security Risk** category with the sub-category **Malicious Websites**.
 
-/new line
-[picture of something <Screenshot of the Web Rating Override creation window in FortiGate, displaying the URL www.bing.com mapped to the custom category Security Risk and sub-category Malicious Websites>]
-/new line
+<img width="551" height="578" alt="image" src="https://github.com/user-attachments/assets/ed05c474-373c-43b4-b854-71ae9bbdb3a8" />
+
 
 ---
 
@@ -70,9 +69,8 @@ Rather than flatly blocking a category, I implemented an authentication bypass t
 2. Edited the Web Filter profile and changed the action for the **Malicious Websites** category from *Block* to **Authenticate**.
 3. Set the **Warning Interval** to **5 minutes** and mapped the authentication privilege to the **Override_Permissions** group.
 
-/new line
-[picture of something <Screenshot of the client browser showing the FortiGate Web Filter Authentication prompt when attempting to access www.bing.com, prompting for credentials to bypass the block>]
-/new line
+<img width="934" height="115" alt="image" src="https://github.com/user-attachments/assets/769c767a-ecae-4ee3-8989-7eaab8f8fef9" />
+
 
 ### **Verification:**
 Visiting `www.bing.com` (which was overridden to *Malicious Websites*) now prompted an authentication challenge page. Entering the credentials for `user1` successfully authorized a 5-minute bypass, registering a **passthrough** action in the security logs.
@@ -87,11 +85,10 @@ Static URL filtering allows the perimeter administrator to block or permit expli
 2. Added a new entry for `www.bing.com`, set the type to **Simple**, and set the action to **Block**.
 3. Converted the firewall policy and Web Filter profile feature set to **Flow-based** mode to test behavior differences.
 
-/new line
-[picture of something <Screenshot of the Web Filter profile's Static URL Filter list showing the simple block rule for www.bing.com status enabled>]
-/new line
+<img width="589" height="228" alt="image" src="https://github.com/user-attachments/assets/a667bca3-3b5f-4564-b146-4df83f5c43fc" />
 
-### **The Critical Log Behavior Difference (SOC Focus):**
+
+### **The Critical Log Behavior Difference:**
 Because the static URL filter is evaluated **first**, matches are blocked immediately. Consequently, no FortiGuard rating query is sent to the FDS, resulting in a **Web Filter Log entry where the "Category" field is completely empty**.
 
 ---
@@ -105,9 +102,8 @@ I verified three major log behaviors:
 2. **Passthrough Log:** Traced the successful authentication session for `www.bing.com` showing user association and a `passthrough` action status.
 3. **Empty Category Log:** Identified the static block for `www.bing.com`, verifying that the Category field remained blank because the static engine dropped the traffic before categorization.
 
-/new line
-[picture of something <Screenshot of the FortiAnalyzer Web Filter log view table displaying the blocked traffic events, highlighting columns for Source IP, Host (URL), Action (Block/Passthrough), Category, and User (showing 'user1' for the authenticated bypass)>]
-/new line
+<img width="1001" height="270" alt="image" src="https://github.com/user-attachments/assets/8c6c207e-cf88-4f91-a7d7-3dd90782bde2" />
+
 
 ---
 
@@ -122,7 +118,6 @@ get webfilter status
 # Verify real-time rating server RTT and see which FDS server is currently active
 diagnose debug rating
 ```
-*(Reference:)*
 
 ---
 
