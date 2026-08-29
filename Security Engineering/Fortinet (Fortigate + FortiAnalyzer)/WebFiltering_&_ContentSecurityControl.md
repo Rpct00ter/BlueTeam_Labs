@@ -1,4 +1,4 @@
-# Lab 9 - Web Filtering & Content Security Control
+# Web Filtering & Content Security Control
 
 This repository showcases my hands-on implementation of **Category-Based Web Filtering**, **Local Web Rating Overrides**, **User-Authenticated Security Bypasses**, and **Static URL Filtering** on a **FortiGate Next-Generation Firewall (NGFW)**, integrated with centralized monitoring on **FortiAnalyzer**.
 
@@ -9,12 +9,6 @@ Unrestricted web access in an enterprise environment exposes the organization to
 
 In this lab, I designed and configured a multi-layered web filtering policy to control inbound and outbound web traffic. The objective was to enforce acceptable use policies (blocking social media), apply soft-repressive controls (warning users), implement role-based overrides (requiring authentication to access restricted sites), and configure local URL exceptions.
 
----
-
-## Web Filtering Evaluation Order
-When a client requests a URL, the FortiGate processes the web security profiles using a strict evaluation hierarchy:
-
-\\[\text{Incoming URL Request} \;\rightarrow\; \textbf{1. Static URL Filter} \;\rightarrow\; \textbf{2. Web Rating Override} \;\rightarrow\; \textbf{3. FortiGuard Category Action}\\]
 
 ---
 
@@ -106,7 +100,7 @@ I verified three major log behaviors:
 
 ---
 
-## 🛠️ CLI Diagnostics & Troubleshooting
+## CLI Diagnostics & Troubleshooting
 
 To monitor rating server connections and resolve latency issues from the command-line interface, I utilized the following diagnostics:
 
@@ -118,9 +112,4 @@ get webfilter status
 diagnose debug rating
 ```
 
----
-
-## 🧠 Key Takeaways for SOC Roles
-* **Log Triage (Static vs Category):** Understanding that an empty category field in a web filter log is normal behavior for local static blocks avoids wasting time troubleshooting FDS database issues.
-* **Policy Auditing:** Leveraging the difference between **Allow** (permits traffic silently) and **Monitor** (permits and generates explicit threat logs) is critical for adjusting corporate web security posture and baseline analysis.
-* **Optimal Inspection:** Since web filtering operates on the HTTP Host header or TLS Server Name Indication (SNI) handshake, **Certificate Inspection** is highly efficient and sufficient for standard category-based filtering, avoiding the overhead of full decryption.
+--- 
