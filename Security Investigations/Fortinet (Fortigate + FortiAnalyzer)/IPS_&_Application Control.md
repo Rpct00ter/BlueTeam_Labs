@@ -101,7 +101,7 @@ Unlike port filtering, Application Control uses IPS protocol decoders to identif
    * **Action:** Block.
 3. Applied the default Application Control profile and a **Deep SSL Inspection** profile to the outbound firewall policy. *Note: Deep inspection is mandatory here to decrypt HTTPS payloads and identify application signatures inside encrypted traffic.*
 
-/new line
+📌/new line
 [picture of something <Screenshot of the FortiGate Application Control profile configuration showing the Filter Overrides section with an active block rule targeting the 'Excessive-Bandwidth' behavior filter>]
 /new line
 
