@@ -4,14 +4,14 @@ This repository showcases my hands-on implementation of **Full SSL/TLS Deep Insp
 
 ---
 
-## 📌 Project Objective & Use Case
+## Project Objective & Use Case
 Over 90% of modern web traffic utilizes HTTPS encryption. While this protects user privacy, it creates a massive security blind spot: firewall security engines (such as Antivirus, IPS, and Web Filtering) cannot scan encrypted payloads. 
 
 In this lab, I configured FortiGate to act as a **secure intermediary (Man-in-the-Middle proxy)** to decrypt HTTPS sessions, scan payloads for threats, enforce strict certificate revocation checks, and seamlessly re-encrypt the traffic before forwarding it to its destination. I also configured granular security exemptions to bypass decryption for sensitive or trusted destinations.
 
 ---
 
-## ⚙️ Architectural Workflow
+## Architectural Workflow
 
 Before deep inspection, the firewall only has visibility up to the SSL handshake (Server Name Indication / SNI). With **Full SSL Inspection**, the traffic flow is split into two secure segments:
 
@@ -29,7 +29,7 @@ To maintain control over how the FortiGate manages certificate validation anomal
 4. Set the firewall to use the local CA certificate **Fortinet_CA_SSL** to sign the dynamically generated site certificates.
 5. Configured the **Invalid SSL certificates** action to **Custom** to allow granular control over how expired or untrusted certificates are handled.
 
-/new line
+📌/new line
 [picture of something <Screenshot of the FortiGate GUI in Security Profiles -> SSL/SSH Inspection displaying the "Custom_Full_Inspection" profile configuration with Full SSL Inspection enabled, Fortinet_CA_SSL selected, and Invalid SSL certificates set to Custom>]
 /new line
 
@@ -43,7 +43,7 @@ An SSL inspection profile must be bound to a security policy to actively inspect
 2. Under **Security Profiles**, enabled **Web Filter** and bound my newly created **Custom_Full_Inspection** profile.
 3. Configured **Log Allowed Traffic** to **All Sessions** to capture detailed connection metadata.
 
-/new line
+📌/new line
 [picture of something <Screenshot of the Firewall Policy configuration page under Security Profiles, highlighting the SSL Inspection profile set to Custom_Full_Inspection and Web Filter set to default>]
 /new line
 
