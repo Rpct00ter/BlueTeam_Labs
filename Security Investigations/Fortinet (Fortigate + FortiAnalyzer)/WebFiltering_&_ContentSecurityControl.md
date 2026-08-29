@@ -37,7 +37,7 @@ Using the global FortiGuard categorization engine, I restricted or monitored spe
 2. Under **General Interest - Personal**, located **Social Networking** (representing domains like `www.facebook.com`), right-clicked, and set the action to **Block**.
 3. Under **Bandwidth Consuming**, located **Internet Telephony**, set the action to **Warning**, and configured a **Warning Interval** of **5 minutes**.
 
-/new line
+📌/new line
 [picture of something <Screenshot of the FortiGate Web Filter profile configuration page, showing the category tree with 'Social Networking' set to a red Block icon and 'Internet Telephony' set to a yellow Warning icon>]
 /new line
 
