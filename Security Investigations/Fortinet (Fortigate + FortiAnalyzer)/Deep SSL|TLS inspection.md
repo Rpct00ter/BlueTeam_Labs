@@ -28,10 +28,7 @@ To maintain control over how the FortiGate manages certificate validation anomal
 3. Selected **Full SSL Inspection** as the inspection method.
 4. Set the firewall to use the local CA certificate **Fortinet_CA_SSL** to sign the dynamically generated site certificates.
 5. Configured the **Invalid SSL certificates** action to **Custom** to allow granular control over how expired or untrusted certificates are handled.
-
-📌/new line
-[picture of something <Screenshot of the FortiGate GUI in Security Profiles -> SSL/SSH Inspection displaying the "Custom_Full_Inspection" profile configuration with Full SSL Inspection enabled, Fortinet_CA_SSL selected, and Invalid SSL certificates set to Custom>]
-/new line
+<img width="1919" height="901" alt="image" src="https://github.com/user-attachments/assets/b5c7116d-6fa3-467d-8bc4-ce7067e06371" />
 
 ---
 
@@ -43,9 +40,8 @@ An SSL inspection profile must be bound to a security policy to actively inspect
 2. Under **Security Profiles**, enabled **Web Filter** and bound my newly created **Custom_Full_Inspection** profile.
 3. Configured **Log Allowed Traffic** to **All Sessions** to capture detailed connection metadata.
 
-📌/new line
-[picture of something <Screenshot of the Firewall Policy configuration page under Security Profiles, highlighting the SSL Inspection profile set to Custom_Full_Inspection and Web Filter set to default>]
-/new line
+<img width="1919" height="901" alt="image" src="https://github.com/user-attachments/assets/02396746-e109-42ec-a495-476a3e339c4a" />
+
 
 ---
 
